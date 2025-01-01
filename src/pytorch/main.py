@@ -33,6 +33,9 @@ print(f"Using {device} device")
 
 
 class NeuralNetwork(nn.Module):
+    """
+    "test"
+    """
     def __init__(self):
         super().__init__()
         self.flatten = nn.Flatten()
