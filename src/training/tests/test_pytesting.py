@@ -62,7 +62,7 @@ def ouverture_fermeture():
 def test_is_ouverture(ouverture_fermeture):
     print("on manipule la bbd ou verifie la connection")
 
-
+#exercice 6
 def divide(a,b):
     if b==0: 
         raise ValueError("zero")
@@ -71,6 +71,26 @@ def divide(a,b):
 def test_divide():
     with pytest.raises(ValueError, match="zero"):
         divide(10, 0)
+
+#exercice 7
+import json
+from unittest.mock import patch
+
+def get_data(nom_fichier):
+    with open(nom_fichier, 'r') as fichier:
+        donnees = json.load(fichier)
+    return donnees
+
+
+
+@patch('json.load')
+def test_get_data(mock_json_load):
+    mock_json_load.return_value = {"key": "value"}
+    result = get_data("fichier.json")
+    assert get_data("fichier.json") == {"key": "value"}
+
+
+
 
 
 
